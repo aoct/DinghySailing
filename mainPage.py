@@ -22,3 +22,13 @@ Builder.load_string("""
 		# background_color: 0,0,0,.0
 		
 	""")
+
+
+"""
+The main page will be the opening of the app. It will have a big central button 
+that will lead us to the sailing page. Then we are going to have a small settings
+button, a small button to access old sailing data, etc...
+
+
+
+"""
