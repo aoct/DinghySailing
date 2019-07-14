@@ -1,1 +1,1 @@
-# DinghySailing
+# Sailing Supervisor

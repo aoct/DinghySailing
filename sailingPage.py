@@ -15,8 +15,8 @@ Builder.load_string("""
 <SailingPage>:
 
 	Label:
-		text: 'This is the sailing Page \n The sailing page will contain the speed in kts and 2 angles'
-		
+		text: 'Will contain the speed in kts and 2 angles'
+
 	""")
 
 

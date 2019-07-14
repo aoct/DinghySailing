@@ -20,15 +20,12 @@ Builder.load_string("""
 		size_hint: (.2, .2)
 		pos_hint: {'x':.4, 'y':.4}
 		# background_color: 0,0,0,.0
-		
+
 	""")
 
 
 """
-The main page will be the opening of the app. It will have a big central button 
+The main page will be the opening of the app. It will have a big central button
 that will lead us to the sailing page. Then we are going to have a small settings
 button, a small button to access old sailing data, etc...
-
-
-
 """
