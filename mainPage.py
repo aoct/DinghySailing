@@ -17,8 +17,8 @@ Builder.load_string("""
 	Button:
 		on_release: app.sm.current = 'SailingPage'
 		text: 'Start Sailing'
-		size_hint: (.2, .2)
-		pos_hint: {'x':.4, 'y':.4}
+		size_hint: (.4, .2)
+		pos_hint: {'x':.3, 'y':.4}
 		# background_color: 0,0,0,.0
 
 	""")

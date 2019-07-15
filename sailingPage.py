@@ -1,22 +1,55 @@
 from kivy.uix.screenmanager import Screen
 from kivy.uix.button import Button
 from kivy.lang import Builder
-from kivy.properties import ObjectProperty
+from kivy.clock import Clock
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.label import Label
 
-from kivmob import KivMob, TestIds
+from accelerometerInterface import Accelerometer
 
 class sailingPage(Screen):
-
 	def __init__(self, **kwargs):
 		super(sailingPage, self).__init__(**kwargs)
+		self.acc = Accelerometer()
+
+		self.measGrid = GridLayout(cols=1, size_hint=(1.,.8))
+		self.measGrid.add_widget(Label(text='Speed: 0 knts', font_size='20sp'))
+		self.measGrid.add_widget(Label(text='X: 0', font_size='20sp'))
+		self.measGrid.add_widget(Label(text='Y: 0', font_size='20sp'))
+		self.measGrid.add_widget(Label(text='Z: 0', font_size='20sp'))
+
+		self.add_widget(self.measGrid)
+
+	def on_enter(self):
+		self.acc.start()
+		Clock.schedule_interval(self.update_angles, 1 / 1.)
+
+	def on_leave(self):
+		self.acc.stop()
+		Clock.unschedule(self.update_angles)
+
+	def update_angles(self, dt):
+		print('Updating angles')
+		val = self.acc.get_value()
+
+		self.measGrid.children[2].text = 'X: {:.2f}'.format(val[0])
+		self.measGrid.children[1].text = 'Y: {:.2f}'.format(val[1])
+		self.measGrid.children[0].text = 'Z: {:.2f}'.format(val[2])
 
 
 Builder.load_string("""
 <SailingPage>:
-
-	Label:
-		text: 'Will contain the speed in kts and 2 angles'
-
+	Button:
+		size_hint: (.1, .1)
+		pos_hint: {'x':0.01, 'y':.89}
+		on_release: app.sm.current = 'MainPage'
+		background_color: 0, 0, 0, .0
+		Image:
+            source: "images/icons/home.png"
+            y: self.parent.y
+            x: self.parent.x
+            size: self.parent.size
+            allow_stretch: True
 	""")
 
 
