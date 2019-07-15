@@ -91,13 +91,13 @@ android.permissions = ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, INTERNET, AC
 android.api = 28
 
 # (int) Minimum API your APK will support.
-android.minapi = 28
+android.minapi = 27
 
 # (int) Android SDK version to use
-android.sdk = 25
+# android.sdk = 25
 
 # (str) Android NDK version to use
-android.ndk = r20
+# android.ndk = 17c
 
 # (int) Android NDK API to use. This is the minimum API your app will support, it should usually match android.minapi.
 #android.ndk_api = 21
